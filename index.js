@@ -11,6 +11,14 @@ const lvlProgress = document.querySelector('.level_progress')
 
 const lvl = document.querySelector('#level')
 
+const nav_mine = document.querySelector('.display_footer-mine')
+
+const display_content = document.querySelector('.display_content')
+
+const mine_content = document.querySelector('.mine_content')
+
+const nav_game = document.querySelector('.display_footer-exchange')
+
 const data = {
     coin:0,
     energy:1000,
@@ -42,7 +50,7 @@ app.style.display = 'flex'
 },6000)
 }
 
-function handeleTap(e){
+function handelTap(e){
 if(data.energy > 0){
     data.coin = data.coin + data.earn_per_tap;
     data.energy = data.energy - 1;
@@ -104,6 +112,14 @@ function energyPerSecond(){
 
    },2000)
 }
+function changeToMenu(){
+mine_content.style.display = 'flex'
+display_content.style.display = 'none'
+}
+function changeToGame(){
+    mine_content.style.display = 'none'
+    display_content.style.display = 'flex'
+    }
 
 
 
@@ -116,9 +132,9 @@ function energyPerSecond(){
 
 
 
-
-
-hamster.addEventListener('click',handeleTap)
+hamster.addEventListener('click',handelTap)
+nav_mine.addEventListener('click',changeToMenu)
+nav_game.addEventListener('click',changeToGame)
 energyPerSecond()
 earnPerSecond()
 handleGreeting();
