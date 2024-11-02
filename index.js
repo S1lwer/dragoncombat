@@ -31,7 +31,7 @@ earn_per_tap:1
 function handleGreeting(){
     let div = document.createElement('div')
     let img = document.createElement('img')
-    img.src = '../assets/hamster-poster.png'
+    img.src = './assets/hamster-poster.png'
 div.classList.add('greating')
     div.appendChild(img);
 
@@ -65,7 +65,7 @@ hamster.classList.remove('tap_mod');
 }
 
 const money = document.createElement('img')
-money.src = '../assets/hamster-coin.png'
+money.src = './assets/hamster-coin.png'
 money.classList.add('money')
 
 app.appendChild(money)
