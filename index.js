@@ -19,6 +19,8 @@ const mine_content = document.querySelector('.mine_content')
 
 const nav_game = document.querySelector('.display_footer-exchange')
 
+const buyButtons = document.querySelectorAll('.buy_card')
+
 const data = {
     coin:0,
     energy:1000,
@@ -28,7 +30,17 @@ level_progress:0,
 earn_per_tap:1
 }
 
+document.addEventListener('DOMContentLoaded', function(){
+    if(localStorage.length > 0){
+        let savedInfo = localStorage.getItem('data');
+
+        data.coin = savedInfo;
+        countDisplay.innerHTML = savedInfo;
+    }
+})
 function handleGreeting(){
+    localStorage.setItem('coin', data.coin);
+
     let div = document.createElement('div')
     let img = document.createElement('img')
     img.src = './assets/hamster-poster.png'
@@ -49,6 +61,21 @@ app.style.display = 'flex'
 
 },6000)
 }
+buyButtons.forEach((value,index,array)=>{
+value.addEventListener('click',function(){
+
+let price = value.dataset.price
+
+if(price< data.coin);{
+    data.coin = data.coin - price;
+data.profit = data.profit + 200;
+    
+}
+})
+})
+
+
+
 
 function handelTap(e){
 if(data.energy > 0){
